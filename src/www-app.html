@@ -1,0 +1,33 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="www-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+        width: 100vw;
+        height: 100vw;
+        background-image: url(images/swarmcity-bg.png);
+        background-size: auto 100%;
+        background-position: bottom;
+        background-repeat: no-repeat;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'www-app',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'www-app',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
