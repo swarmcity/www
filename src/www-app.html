@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <dom-module id="www-app">
   <template>
@@ -7,15 +8,41 @@
         display: block;
         width: 100vw;
         height: 100vw;
-        background-image: url(images/swarmcity-bg.png);
-        background-size: auto 100%;
-        background-position: bottom;
-        background-repeat: no-repeat;
+        background-color: #333333;
+      }
+      .section {
+        width: 100%;
+        height: 100%;
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+      }
+
+      .sectioncenter {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+      }
+      img {
+        width: 400px;
+      }
+      a {
+        font-family: Montserrat, sans-serif;
+        color:#EED876;
+        text-decoration: none;
+        outline: none;
+        line-height: 2;
+        border-bottom: 1px dashed #EED876);
       }
     </style>
-    <h2>Hello [[prop1]]</h2>
-  </template>
 
+  <div class="section">
+    <div class="sectioncenter">
+      <img src="images/swarmcity-logo-and-txt-800x400.png" alt="">
+      <a href="https://swarmcity.ryver.com/application/signup/members/knDO2JKSfHHqtoW">Join our comms channel</a>
+      <a href="https://www.facebook.com/groups/arcadecityhive">Find us on facebook</a>
+      <a href="https://github.com/SwarmCity">Follow our progress on Github</a>
+    </div>
+  </div>
+  </template>
   <script>
     Polymer({
 
