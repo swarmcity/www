@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
 
 <dom-module id="www-app">
   <template>
@@ -6,14 +7,17 @@
       :host {
         display: block;
         width: 100vw;
-        height: 100vw;
+        height: 100vh;
         background-image: url(images/swarmcity-bg.png);
-        background-size: auto 100%;
+        background-size: 100% auto;
         background-position: bottom;
         background-repeat: no-repeat;
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+
       }
     </style>
-    <h2>Hello [[prop1]]</h2>
+
   </template>
 
   <script>
@@ -22,10 +26,6 @@
       is: 'www-app',
 
       properties: {
-        prop1: {
-          type: String,
-          value: 'www-app',
-        },
       },
 
     });
