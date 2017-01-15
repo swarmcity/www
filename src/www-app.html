@@ -1,31 +1,602 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html">
+
+<link rel="import" href="../../bower_components/sc-style/sc-style.html">
+<link rel="import" href="../../bower_components/sc-iconset/sc-iconset.html">
 
 <dom-module id="www-app">
+<link rel="import" href="../../bower_components/sc-style/sc-style.css" type="css">
+
   <template>
     <style>
       :host {
         display: block;
         width: 100vw;
-        height: 100vh;
-        background-image: url(images/swarmcity-bg.png);
-        background-size: 100% auto;
-        background-position: bottom;
-        background-repeat: no-repeat;
-        @apply(--layout-horizontal);
-        @apply(--layout-center-center);
+      }
+
+      .temppaddingtopless {
+      padding-top: 10vh;
+      padding-left: 12vw;
+      padding-right: 12vw;
+      padding-bottom: 18vh;
+    }
+      .temppadding {
+      padding-top: 15vh;
+      padding-left: 12vw;
+      padding-right: 12vw;
+      padding-bottom: 15vh;
+    }
+
+    .temppadding_extra {
+      padding-top: 15vh;
+      padding-left: 10vw;
+      padding-right: 10vw;
+      padding-bottom: 15vh;
+
+    }
+
+    .extrapaddbottom {
+      padding-bottom: 20vh;
+    }
+
+    .tempmaxwidth {
+      width: 100%;
+      max-width: 780px;
+    }
+
+      .logo {
+        font-size: 60px;
+        line-height: 68px;
+        margin: 0px 0px 6px 20px;
+      }
+
+      .maintxt {
+        font-size: 40px;
+        line-height: 48px;        
+      }
+    .littlelighter { 
+      background-color: rgba(255,255,255,0.025); 
+    }
+
+
+
+      .team {
+        margin: 20px 0px 0px 0px;
 
       }
+
+      .teamz {
+        width: 100%;
+        margin: 20px 0px 0px 0px;
+
+      }
+
+      .teammember {
+        width: 180px;
+        margin: 30px 25px 30px 25px;
+        background-color: transparent;
+      }
+
+      .teammember p {
+/*        font-size: 14px;
+        line-height: 18px;*/
+      }
+
+      .teammember h2 {
+        font-size: 22px;
+        line-height: 28px;
+        margin: 15px 0px 10px 0px;
+      }
+
+      .memberpiccanvas {
+        width: 100%;
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+      }
+
+      .memberpic {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .memberpic img {
+        width: 100%;
+      }
+
+      .horizontal img {
+        width: auto;
+
+        height: 100%;
+      }
+
+      .membername {
+        font-size: 22px;
+        line-height: 24px;
+      }
+
+
+      .membertxt {
+        width: 100%;
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+      }
+
+      .contactmember a {
+        text-decoration: none;
+      }
+      .contactlogo {
+        width: 20px;
+        height: 20px;
+        margin-right: 12px;
+
+      }
+      .mrgnright {
+        margin-right: 10px;
+      }
+
+      .contactlogo img {
+        width: 100%;
+        height: 100%;
+
+      }
+
+
+
+      .socialboxes {
+        @apply(--layout-horizontal);
+        @apply(--layout-center-center);
+        @apply(--layout-wrap);
+      }      
+
+      .socialbox {
+        width: 160px;
+        height: 130px;
+        margin: 5px;
+      background-color: rgba(0,0,0,0.01); 
+
+      }
+
+      .socialbox a {
+        width: 100%;
+        height: 100%;
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        text-decoration: none;
+
+      }
+      .socialbox:hover {
+        background-color: rgba(0,0,0,0.02); 
+      }
+
+      .sociallogo {
+        height: 30px;
+        min-height: 30px;
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        margin: 0px 10px 20px 10px;
+      }
+
+      .sociallogo img {
+        height: 100%;
+      }
+
+      .extramargins {
+        margin: 0px 12px 20px 12px;
+      }
+      .fonty {
+        font-size: 16px;
+        color: var(--sc-grey4);
+      }
+
+      .dotline {
+        width: 100%;
+        height: 2px;
+        border-bottom: 2px dotted rgba(0,0,0,0.075);
+      }
+
+
+      .lightyellowback {
+        background-color: rgba(239,217,111,0.75);
+      }
+
+      .templineheight {
+        line-height: 28px;
+      }
+
+      .moreone {
+        background-color: black;
+      }
+
+      .falky {
+        background-image: url('https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/660209dd3a692ac31280e55016795ccfb9270f6e_800x600.jpg?cb=05112016&quality=89&w=800');
+        background-size: 100%;
+      }
+
+      paper-button a {
+        text-decoration: none;
+      }
+
+      .smalllogotop {
+        width: 22px;
+        height: 22px;
+        margin: 0px 5px;
+        opacity: 0.25;
+      }
+
+      .smalllogotop:hover {
+        opacity: 0.4;
+      }
+      .smalllogotop img {
+        width: 100%;
+        height: 100%;
+        
+      }
+
+      .footer {
+        height: 4vh;
+      }
+  
+
+
+
+  @media all and (min-width: 0) and (max-width: 400px) { 
+
+
+      .socialboxes {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+      }
+      .socialbox {
+        width: 100%;
+        height: 90px;
+        margin: 5px;
+        background-color: rgba(0,0,0,0.01); 
+        box-sizing:border-box;
+        padding: 15px;
+      }
+      .socialbox a {
+        @apply(--layout-horizontal);
+        @apply(--layout-center);
+        @apply(--layout-start-justified);
+        font-size: 22px;
+
+      }
+
+      .sociallogo {
+        margin: 0px 25px 0px 0px;
+      }
+
+      .extramargins {
+        margin: 0px 12px 0px 0px;
+      }
+
+      .fonty {
+        font-size: 20px;
+      }
+      .teammember {
+        width: 300px;
+        margin: 10px 0px 10px 0px;
+        border-bottom: 2px dotted var(--sc-grey2);
+/*        background-color: rgba(255,255,255,0.25); */
+        box-sizing:border-box;
+        padding: 30px 30px 50px 30px; 
+      }
+
+
+      .smalllogotop {
+        width: 30px;
+        height: 30px;
+        margin: 0px 5px;
+        opacity: 0.25;
+      }
+
+  }
+
+
     </style>
 
-  </template>
 
+  <div class="totalwidth vertic centercenter">
+    <div class="totalwidth vertic centercenter basestructure-dark">
+
+    <div class="topbar horizontal">
+        <div class="flex"></div>
+        <div class="smalllogotop">
+          <img src="/images/Slack_Mark_White_Web.png">
+        </div>
+        <div class="smalllogotop">
+          <img src="/images/GitHub-Mark-Light-120px-plus.png">
+        </div>
+    </div>
+
+    <div class="totalwidth vertic centercenter temppaddingtopless">
+      <div class="tempmaxwidth vertic centercenter">
+      <iron-icon icon="sc-icons:logonew" class="yellow giant">logo</iron-icon>
+        <p class="yellow centertxt maintxt hairline"><span class="bold">Swarm City</span> is the first truly decentralized peer to peer economy, enabled by the SWT token, running on the Ethereum blockchain.</p>      
+      </div>
+      <template is="dom-if" if="{{moreoneclosed}}">
+      <div class="whitespace"></div>
+      <div class="whitespace"></div>
+      <div class="whitespace"></div>
+      <paper-button class="littlelighter shadow yellow" noink on-tap="moreone">tell me more</paper-button>
+    </template>
+    </div>
+  </div>
+      <iron-collapse id="moreone" class="totalwidth">
+      <div class="totalwidth falky vertic centercenter paddingallround txtshadow">
+        <h2 class="white centertxt bold">King, can you maybe put something in here?<br><br>Something refering to Falkvinge maybe? I'll style it better later, when I know how long you wanna make it.<br><br><span class="bold">That would be awesome, thaaaanks!</h2>
+      </div>
+    </iron-collapse>
+
+    <div class="totalwidth vertic centercenter temppadding_extra">
+      <h2 class="centertxt ultralight">Get aligned.</h2>
+      <div class="whitespace"></div>
+      <p class="centertxt grey2">Find us the way you prefer, get informed and interact!</p>
+      <div class="whitespace"></div>
+      <div class="whitespace"></div>
+      <div class="socialboxes totalwidth">
+          <div class="socialbox shadow">
+          <a href="https://swarm-slack-invite.herokuapp.com/" target="_blank">
+            <div class="sociallogo">
+              <img src="/images/Slack_Mark_Web.png">
+            </div>
+            <p class="semibold grey4 fonty">Let's chat!</p>
+          </a>
+          </div>
+
+          <div class="socialbox shadow">
+          <a href="https://medium.com/swarm-city-times" target="_blank">
+            <div class="sociallogo">
+              <img src="/images/medium-m-color-200px.png">
+            </div>
+            <p class="semibold grey4 fonty">Read these.</p>
+          </a>
+          </div>
+
+          <div class="socialbox shadow">
+          <a href="https://github.com/swarmcity" target="_blank">
+            <div class="sociallogo">
+              <img src="/images/GitHub-Mark-120px-plus.png">
+            </div>
+            <p class="semibold grey4 fonty">Code-check?</p>
+          </a>
+          </div>
+
+          <div class="socialbox shadow">
+          <a href="https://twitter.com/SwarmCityHive" target="_blank">
+            <div class="sociallogo">
+              <img src="/images/Twitter_Logo_Blue.png">
+            </div>
+            <p class="semibold grey4 fonty">Follow us.</p>
+          </a>
+          </div>
+
+          <div class="socialbox shadow">
+          <a href="https://www.youtube.com/channel/UCsHBWn_ytZ3xdMbTyYe5Ifg" target="_blank">
+            <div class="sociallogo extramargins">
+              <img src="/images/YouTube-icon-full_color.png">
+            </div>
+            <p class="semibold grey4 fonty">Watch this!</p>
+          </a>
+          </div>
+
+          <div class="socialbox shadow">
+          <a href="https://www.facebook.com/groups/SwarmCity/" target="_blank">
+            <div class="sociallogo extramargins">
+              <img src="/images/FB-f-Logo__blue_100.png">
+            </div>
+            <p class="semibold grey4 fonty">We're here too.</p>
+          </a>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="totalwidth vertic centercenter temppadding basestructure">
+      <h2 class="centertxt ultralight blue">Find your node.</h2>
+      <div class="whitespace"></div>
+      <p class="centertxt grey2 tempmaxwidth">Swarm City is a network of different nodes/teams, each with his specific focus and approach. Find the team that focuses on your interests and connect!</p>
+      <div class="team totalwidth horizont start centerjust wrap">
+        <div class="teammember vertic centercenter">
+          <div class="membertxt centertxt">
+            <p class="bold blue">business node</p>
+            <div class="whitespace"></div>
+            <p>handles investor relations, legal, business processes</p>
+            <div class="minispace"></div>
+          </div>
+          <div class="whitespace"></div>
+          <div class="memberpiccanvas">
+            <div class="memberpic">
+              <img src="/images/bernd.jpg">
+            </div>
+          </div>
+          <div class="whitespace"></div>
+          <p class="centertxt small">Led by</p>
+          <div class="minispace"></div>
+          <h1 class="membername ultralight ">Bernd Lapp</h1>
+          <div class="whitespace"></div>
+          <div class="vertic centercenter contactmember">
+            <div class="dotline"></div>
+            <div class="minispace"></div>
+            <div class="minispace"></div>
+              <a class="totalwidth horizont center startjust" href="https://swarm-slack-invite.herokuapp.com/">
+                <div class="contactlogo">
+                  <img src="/images/Slack_Mark_Web.png">
+                </div>
+                <p class="small grey4 semibold">@bernd</p>
+              </a>
+            <a class="totalwidth horizont center startjust" href="mailto:bernd@swarm.city">
+              <iron-icon icon="sc-icons:mail" class="mrgnright grey4"></iron-icon>
+              <p class="small grey4 semibold">bernd@swarm.city</p>
+            </a>          
+          </div>
+        </div>
+
+        <div class="teammember vertic centercenter">
+          <div class="membertxt centertxt">
+            <p class="bold blue">concept node</p>
+            <div class="whitespace"></div>
+            <p>creates and guards the overall vision of Swarm City</p>
+            <div class="minispace"></div>
+          </div>
+          <div class="whitespace"></div>
+          <div class="memberpiccanvas">
+            <div class="memberpic">
+              <img src="/images/michael-glass.png">
+            </div>
+          </div>
+          <div class="whitespace"></div>
+          <p class="centertxt small">Led by</p>
+          <div class="minispace"></div>
+          <h1 class="membername ultralight ">King Flurkel</h1>
+          <div class="whitespace"></div>
+          <div class="vertic centercenter contactmember">
+            <div class="dotline"></div>
+            <div class="minispace"></div>
+            <div class="minispace"></div>
+              <a class="totalwidth horizont center startjust" href="https://swarm-slack-invite.herokuapp.com/">
+                <div class="contactlogo">
+                  <img src="/images/Slack_Mark_Web.png">
+                </div>
+                <p class="small grey4 semibold">@kingflurkel</p>
+              </a>
+            <a class="totalwidth horizont center startjust" href="mailto:kingflurkel@swarm.city">
+              <iron-icon icon="sc-icons:mail" class="mrgnright grey4"></iron-icon>
+              <p class="small grey4 semibold">kingflurkel@swarm.city</p>
+            </a>          
+          </div>
+        </div>
+
+        <div class="teammember vertic centercenter">
+          <div class="membertxt centertxt">
+            <p class="bold blue">development node</p>
+            <div class="whitespace"></div>
+            <p>is creating the app and underlying technology</p>
+            <div class="minispace"></div>
+          </div>
+          <div class="whitespace"></div>
+          <div class="memberpiccanvas">
+            <div class="memberpic">
+              <img src="/images/stefaan.png">
+            </div>
+          </div>
+          <div class="whitespace"></div>
+          <p class="centertxt small">Led by</p>
+          <div class="minispace"></div>
+          <h1 class="membername ultralight ">Stefaan Ponnet</h1>
+          <div class="whitespace"></div>
+          <div class="vertic centercenter contactmember">
+            <div class="dotline"></div>
+            <div class="minispace"></div>
+            <div class="minispace"></div>
+              <a class="totalwidth horizont center startjust" href="https://swarm-slack-invite.herokuapp.com/">
+                <div class="contactlogo">
+                  <img src="/images/Slack_Mark_Web.png">
+                </div>
+                <p class="small grey4 semibold">@sponnet</p>
+              </a>
+            <a class="totalwidth horizont center startjust" href="mailto:sponnet@swarm.city">
+              <iron-icon icon="sc-icons:mail" class="mrgnright grey4"></iron-icon>
+              <p class="small grey4 semibold">sponnet@swarm.city</p>
+            </a>          
+          </div>
+        </div>
+
+
+        <div class="teammember vertic centercenter">
+          <div class="membertxt centertxt">
+            <p class="bold blue">swarm node</p>
+            <div class="whitespace"></div>
+            <p>inspires, supports and guides the swarm</p>
+            <div class="minispace"></div>
+          </div>
+          <div class="whitespace"></div>
+          <div class="memberpiccanvas">
+            <div class="memberpic">
+              <img src="/images/christopherw.png">
+            </div>
+          </div>
+          <div class="whitespace"></div>
+          <p class="centertxt small">Led by</p>
+          <div class="minispace"></div>
+          <h1 class="membername ultralight centertxt">Christopher Winston</h1>
+          <div class="whitespace"></div>
+          <div class="vertic centercenter contactmember">
+            <div class="dotline"></div>
+            <div class="minispace"></div>
+            <div class="minispace"></div>
+              <a class="totalwidth horizont center startjust" href="https://swarm-slack-invite.herokuapp.com/">
+                <div class="contactlogo">
+                  <img src="/images/Slack_Mark_Web.png">
+                </div>
+                <p class="small grey4 semibold">@christopherwinston</p>
+              </a>
+            <a class="totalwidth horizont center startjust" href="mailto:christopherwinston@swarm.city">
+              <iron-icon icon="sc-icons:mail" class="mrgnright grey4"></iron-icon>
+              <p class="small grey4 semibold">christopherwinston@swarm.city</p>
+            </a>          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="totalwidth vertic centercenter lightyellowback temppadding">
+      <div class="totalwidth vertic centercenter tempmaxwidth">
+        <h1 class="centertxt">Take a tour!</h1>
+        <div class="whitespace"></div>
+<!--         <p class="centertxt grey4 bold">Unsure about entering the city?</p>
+        <div class="whitespace"></div> -->
+
+        <p class="centertxt templineheight"> <span class="">Don't know where to start?</span> Come take a Swarm City guided tour on our Slack-channel! On of the swarm members will show you around the Slack and tell you all about our beautiful city. There's a tour every 8 hours on the hour, at #terminal!</p>
+        <div class="whitespace"></div>
+        <div class="whitespace"></div>
+        <paper-button noink class="yellowback shadow"><a class="grey4 bold" href="https://swarm-slack-invite.herokuapp.com/">Get a Slack-invite</a></paper-button>
+      
+<!--  DOESN'T TOMMY HAVE A VIDEO ON THE TOURS? WOULD BE COOL
+      <video>
+      </video> -->
+      </div>
+    </div>
+
+<!--     <div class="totalwidth vertic centercenter whiteback temppadding">
+      <div class="totalwidth vertic centercenter tempmaxwidth">
+        <h1 class="centertxt green">FAQ</h1>
+      </div>
+    </div>
+ -->
+    <div class="totalwidth vertic centercenter basestructure-dark footer">
+      <div class="totalwidth vertic centercenter tempmaxwidth">
+      </div>
+    </div>
+
+
+    </div>
+
+  </div>
+  </template>
   <script>
     Polymer({
 
       is: 'www-app',
 
       properties: {
+      },
+
+      attached: function(){
+        this.moreoneclosed = true;
+      },
+
+      moreone: function(){
+        this.$.moreone.toggle();
+        this.moreoneclosed =! this.moreoneclosed;
+
       },
 
     });
